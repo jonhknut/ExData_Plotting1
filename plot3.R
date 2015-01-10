@@ -27,10 +27,16 @@ power$Date.Time <- power$Date + power$Time
 png(filename = "plot3.png", width = 480, height = 480, units = "px")
 
 # Drawing the plot
-plot(power$Global_active_power ~ power$Date.Time,
+plot(power$Sub_metering_1 ~ power$Date.Time,
      type = "l", lwd = 1,
-     ylab = "Global Active Power (kilowatts)",
+     ylab = "Energy sub metering",
      xlab = "")
+lines(power$Sub_metering_2 ~ power$Date.Time,
+      col = "red")
+lines(power$Sub_metering_3 ~ power$Date.Time,
+      col = "blue")
+legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       lty = 1, col = c("black", "red", "blue"))
 
 # Closing the graphic device
 dev.off()
