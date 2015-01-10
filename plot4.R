@@ -26,19 +26,22 @@ power$Date.Time <- power$Date + power$Time
 # Starting graphic devise
 png(filename = "plot4.png", width = 480, height = 480, units = "px")
 
-# Drawing the plots
+# Setting graphical parameteres
 par(mfrow = c(2,2))
 
+# Plotting top left plot
 plot(power$Global_active_power ~ power$Date.Time,
      type = "l", lwd = 1,
      ylab = "Global Active Power",
      xlab = "")
 
+# Plotting top right plot
 plot(power$Voltage ~ power$Date.Time,
      type = "l", lwd = 1,
      ylab = "Voltage",
      xlab = "datetime")
 
+# Plotting bottom left plot
 plot(power$Sub_metering_1 ~ power$Date.Time,
      type = "l", lwd = 1,
      ylab = "Energy sub metering",
@@ -50,6 +53,7 @@ lines(power$Sub_metering_3 ~ power$Date.Time,
 legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
        lty = 1, col = c("black", "red", "blue"), bty = "n")
 
+# Plotting bottom right plot
 plot(power$Global_reactive_power ~ power$Date.Time,
      type = "l", lwd = 1,
      ylab = "Global_reactive_power",
